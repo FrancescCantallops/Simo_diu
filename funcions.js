@@ -1,12 +1,12 @@
 let colors = ["red", "green", "blue", "gold", "fuchsia", "GreenYellow", "LightSeaGreen", "Lime"];
 let sequencia = [];
 
- let nombre_botons = colors.length;
- let nombre_botons_pitjats = 0;
- let pitjades_faltants = 0;
+let nombre_botons = colors.length;
+let nombre_botons_pitjats = 0;
+let pitjades_faltants = 0;
 
- let temps_amagat = 500;
- let temps_mostrar = 1000;
+let temps_amagat = 500;
+let temps_mostrar = 1000;
 
 function add_color(){
     sequencia.push(Math.floor(Math.random() * nombre_botons));
