@@ -1,0 +1,9 @@
+.boto-joc{
+    height: 70px;
+    width: 70px;
+    border-radius: 10px;
+}
+
+#display_central{
+    text-align: center;
+}
