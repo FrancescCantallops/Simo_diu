@@ -7,3 +7,7 @@
 #display_central{
     text-align: center;
 }
+
+table {
+    margin: auto;
+}

@@ -7,9 +7,9 @@
     <title>My Website</title>
     <link rel="stylesheet" href="estils.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    <script src="Prova_sequencia_aleatoria.js"></script>
+    <script src="funcions.js"></script>
   </head>
-  <body>
+  <body onload="reiniciar()">
     <main>
       <button onclick="add_color()">Afegir color</button>
       <button onclick="mostrar_sequencia()">Mostrar sequencia</button>
@@ -33,6 +33,11 @@
           <td><button class="boto-joc" id="boto_7" onclick="comprovar_sequencia(7)"></button></td>
         </tr>
       </table> 
+      <div id="banner_perdut" hidden> Has perdut! </div>
+      <div id="banner_record" hidden>  Nou record! </div>
+      <div id="banner_empat"> Has empatat el record! </div>
+      <div> Punts: <div id="puntuacio"> 0  </div> </div>
+      <div> Record: <div id="record_puntuacio"> 0 </div> </div>
 
     </main>
 

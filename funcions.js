@@ -8,6 +8,8 @@ let pitjades_faltants = 0;
 let temps_amagat = 500;
 let temps_mostrar = 1000;
 
+let record = 0;
+
 function add_color(){
     sequencia.push(Math.floor(Math.random() * nombre_botons));
     console.log(sequencia);
@@ -41,15 +43,19 @@ function comprovar_sequencia(boto_pitjat){
             nombre_botons_pitjats++;
             actualitzar_restants();
         }else{
+            //Etapa completada
             nombre_botons_pitjats = 0;
+            document.getElementById("puntuacio").innerHTML = sequencia.length;
             add_color();
             mostrar_sequencia();
         }
     }
     else{
-        console.log("Incorrecte")
         //Has perdut
-        reinciar();
+        console.log("Incorrecte")
+        actualitzar_record();
+        reiniciar();
+        document.getElementById("banner_perdut").hidden = false;
     }
 }
 
@@ -85,12 +91,27 @@ function pitjar_boto_central(){
     add_color();
     mostrar_sequencia();
     document.getElementById("display_central").disabled = true;
+    document.getElementById("banner_perdut").hidden = true;
+    document.getElementById("puntuacio").innerHTML = "0";
+    document.getElementById("banner_record").hidden = true;
+    document.getElementById("record_puntuacio").innerHTML = record;
 }
 
-function reinciar(){
+function reiniciar(){
     document.getElementById("display_central").innerHTML = "JUGAR"
     nombre_botons_pitjats = 0;
     sequencia = [];
     amagar_botons();
     document.getElementById("display_central").disabled = false;
+    habilitar_botons(false);
+}
+
+function actualitzar_record(){
+    if(sequencia.length -1 > record){
+        record = sequencia.length -1;
+        document.getElementById("banner_record").hidden = false;
+    }
+    else if (sequencia.length -1 == record){
+        //Has empatat el record
+    }
 }
