@@ -1,4 +1,4 @@
-let colors = ["red", "green", "blue", "gold", "fuchsia", "GreenYellow", "LightSeaGreen", "Lime"];
+let colors = ["#e90000", "#ff6100", "#fff500", "#05fb00", "#31d5c8", "#33a7c8", "#001eba", "#a538c6"];
 let sequencia = [];
 
 let nombre_botons = colors.length;
@@ -17,19 +17,17 @@ function add_color(){
 
 async function mostrar_sequencia(){
     document.getElementById("display_central").innerHTML = "";
-    //Deshabilitar botons
     habilitar_botons(false);
+
     for (let i=0; i<sequencia.length; i++){
         
-
-        //Crida al mètode esperar
+        //Mostra el boto durant un temps i el torna a amagar
         amagar_botons();
         await esperar(temps_amagat);
         document.getElementById("boto_"+sequencia[i]).style.background = colors[sequencia[i]];
         await esperar(temps_mostrar);
 
         console.log(sequencia[i]);
-        
     }
     mostrar_botons();
     habilitar_botons(true);
@@ -38,6 +36,7 @@ async function mostrar_sequencia(){
 
 function comprovar_sequencia(boto_pitjat){
     if(boto_pitjat == sequencia[nombre_botons_pitjats]){
+        //S'ha pitjat el boto correcte
         console.log("Correcte");
         if(nombre_botons_pitjats < sequencia.length -1){
             nombre_botons_pitjats++;
@@ -88,30 +87,40 @@ function actualitzar_restants(){
 }
 
 function pitjar_boto_central(){
+    //Desactivar boto primer per no duur a problemes (ex: pitjar dues vegades seguides)
+    document.getElementById("display_central").disabled = true;
+    //Amagar banners
+    document.getElementById("banner_perdut").hidden = true;
+    document.getElementById("banner_record").hidden = true;
+    document.getElementById("banner_empat").hidden = true;
+    //Reiniciar puntuacio i actualitzar record
+    document.getElementById("puntuacio").innerHTML = "0";
+    document.getElementById("record_puntuacio").innerHTML = record;
+    //Començar la sequencia del joc
     add_color();
     mostrar_sequencia();
-    document.getElementById("display_central").disabled = true;
-    document.getElementById("banner_perdut").hidden = true;
-    document.getElementById("puntuacio").innerHTML = "0";
-    document.getElementById("banner_record").hidden = true;
-    document.getElementById("record_puntuacio").innerHTML = record;
 }
 
 function reiniciar(){
-    document.getElementById("display_central").innerHTML = "JUGAR"
+    //Reiniciar variables
     nombre_botons_pitjats = 0;
     sequencia = [];
+    //Tornar botons a configuracio inicial
     amagar_botons();
-    document.getElementById("display_central").disabled = false;
     habilitar_botons(false);
+    document.getElementById("display_central").innerHTML = "JUGAR"
+    document.getElementById("display_central").disabled = false;
 }
 
 function actualitzar_record(){
     if(sequencia.length -1 > record){
+        //Nou record
         record = sequencia.length -1;
         document.getElementById("banner_record").hidden = false;
+        //El nou record no es mostra per poder comparar amb l'antic record
     }
     else if (sequencia.length -1 == record){
         //Has empatat el record
+        document.getElementById("banner_empat").hidden = false;
     }
 }

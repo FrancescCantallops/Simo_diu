@@ -8,13 +8,15 @@
     <link rel="stylesheet" href="estils.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
     <script src="funcions.js"></script>
+    <script src="visuals.js"></script>
   </head>
   <body onload="reiniciar()">
     <main>
       <button onclick="add_color()">Afegir color</button>
       <button onclick="mostrar_sequencia()">Mostrar sequencia</button>
       <h1>Simó diu</h1>
-      <p id="punts"></p>
+      <button id="selector_paleta" onclick="canviar_paleta()"> Canviar estil </button>
+      <p id="contenidor_nom_paleta"> Rainbow </p>
 
       <table>
         <tr>
@@ -35,7 +37,7 @@
       </table> 
       <div id="banner_perdut" hidden> Has perdut! </div>
       <div id="banner_record" hidden>  Nou record! </div>
-      <div id="banner_empat"> Has empatat el record! </div>
+      <div id="banner_empat" hidden> Has empatat el record! </div>
       <div> Punts: <div id="puntuacio"> 0  </div> </div>
       <div> Record: <div id="record_puntuacio"> 0 </div> </div>
 
