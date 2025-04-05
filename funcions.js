@@ -106,7 +106,7 @@ function reiniciar(){
     nombre_botons_pitjats = 0;
     sequencia = [];
     //Tornar botons a configuracio inicial
-    amagar_botons();
+    mostrar_botons();
     habilitar_botons(false);
     document.getElementById("display_central").innerHTML = "JUGAR"
     document.getElementById("display_central").disabled = false;
