@@ -1,4 +1,4 @@
-let colors = ["#e90000", "#ff6100", "#fff500", "#05fb00", "#31d5c8", "#33a7c8", "#001eba", "#a538c6"];
+let colors = ["#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000"];
 let sequencia = [];
 
 let nombre_botons = colors.length;
@@ -54,7 +54,10 @@ function comprovar_sequencia(boto_pitjat){
         console.log("Incorrecte")
         actualitzar_record();
         reiniciar();
+        //Mostrar que has perdut
         document.getElementById("banner_perdut").hidden = false;
+        //Mostrar fila record (nomes afecta a la primera partida)
+        document.getElementById("fila_record").hidden = false;
     }
 }
 
@@ -87,8 +90,12 @@ function actualitzar_restants(){
 }
 
 function pitjar_boto_central(){
-    //Desactivar boto primer per no duur a problemes (ex: pitjar dues vegades seguides)
+    //Desactivar botons per no duur a problemes (ex: pitjar dues vegades seguides)
     document.getElementById("display_central").disabled = true;
+    document.getElementById("selector_paleta").disabled = true;
+    document.getElementById("selector_paleta").style.color = "darkgray";
+    //Mostrar fila puntuacio (nomes afecta a la primera partida)
+    document.getElementById("fila_punts").hidden = false;
     //Amagar banners
     document.getElementById("banner_perdut").hidden = true;
     document.getElementById("banner_record").hidden = true;
@@ -101,6 +108,12 @@ function pitjar_boto_central(){
     mostrar_sequencia();
 }
 
+function setup(){
+    reiniciar();
+    //La paleta comença amb el darrer estil per poder carregar el primer estil al principi
+    canviar_paleta();
+}
+
 function reiniciar(){
     //Reiniciar variables
     nombre_botons_pitjats = 0;
@@ -110,6 +123,9 @@ function reiniciar(){
     habilitar_botons(false);
     document.getElementById("display_central").innerHTML = "JUGAR"
     document.getElementById("display_central").disabled = false;
+    document.getElementById("selector_paleta").disabled = false;
+    document.getElementById("selector_paleta").style.color = "black";
+
 }
 
 function actualitzar_record(){

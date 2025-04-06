@@ -2,46 +2,50 @@
 <html lang="cat">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Website</title>
+    <title>Simo Diu</title>
+
     <link rel="stylesheet" href="estils.css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+
     <script src="funcions.js"></script>
     <script src="visuals.js"></script>
   </head>
-  <body onload="reiniciar()">
-    <main>
-      <button onclick="add_color()">Afegir color</button>
-      <button onclick="mostrar_sequencia()">Mostrar sequencia</button>
-      <h1>Simó diu</h1>
-      <button id="selector_paleta" onclick="canviar_paleta()"> Canviar estil </button>
-      <p id="contenidor_nom_paleta"> Rainbow </p>
+  <body onload="setup()">
+    <h1>SIMO DIU</h1>
+    <div id="contenidor_nom_paleta"> Rainbow </div>
+    <button id="selector_paleta" onclick="canviar_paleta()"> Canviar estil </button>
+      
+    <table>
+      <tr>
+        <th><button class="boto-joc" id="boto_0" onclick="comprovar_sequencia(0)"></button></th>
+        <th><button class="boto-joc" id="boto_1" onclick="comprovar_sequencia(1)"></button></th>
+        <th><button class="boto-joc" id="boto_2" onclick="comprovar_sequencia(2)"></button></th>
+      </tr>
+      <tr>
+        <td><button class="boto-joc" id="boto_3" onclick="comprovar_sequencia(3)"></button></td>
+        <td> <button class="boto-joc" id="display_central" onclick="pitjar_boto_central()"> JUGAR </button> </td>
+        <td><button class="boto-joc" id="boto_4" onclick="comprovar_sequencia(4)"></button></td>
+      </tr>
+      <tr>
+        <td><button class="boto-joc" id="boto_5" onclick="comprovar_sequencia(5)"></button></td>
+        <td><button class="boto-joc" id="boto_6" onclick="comprovar_sequencia(6)"></button></td>
+        <td><button class="boto-joc" id="boto_7" onclick="comprovar_sequencia(7)"></button></td>
+      </tr>
+    </table>
 
-      <table>
-        <tr>
-          <th><button class="boto-joc" id="boto_0" onclick="comprovar_sequencia(0)"></button></th>
-          <th><button class="boto-joc" id="boto_1" onclick="comprovar_sequencia(1)"></button></th>
-          <th><button class="boto-joc" id="boto_2" onclick="comprovar_sequencia(2)"></button></th>
-        </tr>
-        <tr>
-          <td><button class="boto-joc" id="boto_3" onclick="comprovar_sequencia(3)"></button></td>
-          <td> <button class="boto-joc" id="display_central" onclick="pitjar_boto_central()"> JUGAR </button> </td>
-          <td><button class="boto-joc" id="boto_4" onclick="comprovar_sequencia(4)"></button></td>
-        </tr>
-        <tr>
-          <td><button class="boto-joc" id="boto_5" onclick="comprovar_sequencia(5)"></button></td>
-          <td><button class="boto-joc" id="boto_6" onclick="comprovar_sequencia(6)"></button></td>
-          <td><button class="boto-joc" id="boto_7" onclick="comprovar_sequencia(7)"></button></td>
-        </tr>
-      </table> 
-      <div id="banner_perdut" hidden> Has perdut! </div>
-      <div id="banner_record" hidden>  Nou record! </div>
-      <div id="banner_empat" hidden> Has empatat el record! </div>
-      <div> Punts: <div id="puntuacio"> 0  </div> </div>
-      <div> Record: <div id="record_puntuacio"> 0 </div> </div>
+    <table>
+      <tr id="fila_punts" hidden>
+        <td class="columna_nom"> Punts: </td>
+        <td class="columna_valor"> <div id="puntuacio"> 0 </div> </td>
+      </tr>
+      <tr id="fila_record" hidden>
+        <td class="columna_nom"> Record: </td>
+        <td class="columna_valor"> <div id="record_puntuacio"> 10 </div> </td>
+      </tr>
+    </table>
 
-    </main>
+    <div class="banner" id="banner_perdut" hidden> Has perdut! </div>
+    <div class="banner" id="banner_record" hidden>  Nou record! </div>
+    <div class="banner" id="banner_empat" hidden> Has empatat el record! </div>
 
   </body>
 </html>
